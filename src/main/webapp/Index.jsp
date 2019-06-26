@@ -11,7 +11,8 @@
 <h1>Student Marksheet</h1>
  Student Name :<input type="text" name="sname" />
  Student Percentage :	<input type="text" name="percentage" />
- </br></br>   <input type="submit"  value="Insert"/>   
+ </br></br>   <input type="submit"  value="Insert"/>
+    <input type="submit"  value="Delete" formaction="retrieve"/>
 </form>
 </body>
 </html>

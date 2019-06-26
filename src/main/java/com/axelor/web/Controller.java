@@ -13,12 +13,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import org.apache.http.HttpException;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
-
 import com.axelor.db.Marksheet;
 import com.axelor.service.Service;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import com.guice.project.db.Pojo;
 
 @Path("/")
 @Singleton
