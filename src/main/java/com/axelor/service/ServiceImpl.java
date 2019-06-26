@@ -1,6 +1,9 @@
 package com.axelor.service;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import com.axelor.db.Marksheet;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -20,4 +23,12 @@ public class ServiceImpl implements Service {
     ms1.setPercentage(percentage);      
     em.get().persist(ms1);
   }
+  
+  @Override
+	@Transactional
+	public List<Marksheet> getRecord() {
+        Query q = em.get().createQuery(" FROM Marksheet");
+        List<Marksheet> userList = q.getResultList();
+        return userList;  
+  }  
 }

@@ -2,6 +2,7 @@ package com.axelor.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +14,11 @@ import javax.ws.rs.core.Context;
 import org.apache.http.HttpException;
 import org.jboss.resteasy.annotations.jaxrs.FormParam;
 
+import com.axelor.db.Marksheet;
 import com.axelor.service.Service;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.guice.project.db.Pojo;
 
 @Path("/")
 @Singleton
@@ -37,4 +40,13 @@ public class Controller{
              service.add(sname, percentage);
              res.getWriter().print("successfull");
   };
+
+  @Path("/retrieve")
+  public void retrieve(String percentage,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,ServletException,IOException {
+		 List<Marksheet> mr=service.getRecord();
+		 req.setAttribute("marksheet",mr);    
+		 req.getRequestDispatcher("display.jsp").forward(req, res);  
+  };
+
+
 }
