@@ -3,7 +3,6 @@
 /bin
 /.settings
 /gradlew.bat
-/settings.gradle
 /.classpath
 /.project
 /build
