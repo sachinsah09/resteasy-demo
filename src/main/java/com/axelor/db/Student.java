@@ -18,7 +18,7 @@ public class Student {
 	String sname;
 	int age;
 	
-	@OneToMany(orphanRemoval=true, cascade=CascadeType.ALL)	
+	@OneToMany(mappedBy = "student" ,orphanRemoval=true, cascade=CascadeType.ALL)	
 	private Set<Marksheet> marksheet;
 	
 	public Set<Marksheet> getMarksheet() {

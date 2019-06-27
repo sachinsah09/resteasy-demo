@@ -17,9 +17,8 @@
  Standard : <input type="text" name="std"> 
  Marks Obtained :<input type="text" name="marksObtain" />
  Marks Total :<input type="text" name="marksOutOf" /></br></br>
- 
- <input type="submit"  value="insert"/>
- 
+ <input type="submit"  value="insert"/></br></br>
+ <input type="submit" value="retrieve" formaction="retrieve"/>
 </form>
 </body>
 </html>

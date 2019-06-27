@@ -1,14 +1,14 @@
 package com.axelor.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import com.axelor.db.Marksheet;
 import com.axelor.db.Student;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import com.google.inject.persist.PersistFilter;
 import com.google.inject.persist.Transactional;
 
 public class ServiceImpl implements Service {
@@ -28,7 +28,7 @@ public class ServiceImpl implements Service {
   		ms1.setStd(std);
   		ms1.setMarksObtain(marksObtain);
   		ms1.setMarksOutOf(marksOutOf);
-  		percentage1=marksObtain/marksOutOf*100;
+  		percentage1=(marksObtain/marksOutOf)*100;
   		ms1.setPercentage(percentage1);
   		ms1.setStudent(student);
 	
@@ -49,14 +49,38 @@ public class ServiceImpl implements Service {
   		ms3.setStudent(student);
   		
   		Set<Marksheet> mrSet=new HashSet<Marksheet>();
-  		mrSet.add(ms1);
-  		mrSet.add(ms2);
   		mrSet.add(ms3);
+  		mrSet.add(ms2);
+  		mrSet.add(ms1);
   	
   		student.setSname(sname);
   		student.setAge(age);
   		student.setMarksheet(mrSet);
   		
   		em.get().persist(student);
-  	}  
+  	}
+
+  	@Override
+	@Transactional
+	public List<Marksheet> getRecordsMarksheet() {
+	          Query q = em.get().createQuery(" FROM Marksheet");
+	          List<Marksheet> marksList = q.getResultList();
+	          return marksList;  
+	}
+  	
+  	@Transactional  	
+	@Override
+	public void deleteRecord(int id) {
+		Student s= new Student();
+		s= em.get().find(Student.class, id);
+		em.get().remove(s);
+	}
+
+	@Override
+	public void updateRecord(int id,String sname,int age) {
+		Student student = em.get().find(Student.class, id);
+  		student.setSname(sname);
+  		student.setAge(age);
+		 em.get().persist(student);
+	}  
 }
