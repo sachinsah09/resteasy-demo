@@ -8,11 +8,18 @@
 </head>
 <body>
 <form align="center" name="Form" method="post" action="insert" >
-<h1>Student Marksheet</h1>
- Student Name :<input type="text" name="sname" />
- Student Percentage :	<input type="text" name="percentage" />
- </br></br>   <input type="submit"  value="Insert"/>
-    <input type="submit"  value="Delete" formaction="retrieve"/>
+
+<h1>Student Marksheet Entry</h1>
+ 
+ Student name :<input type="text" name="sname" />
+ Student age :<input type="text" name="age" /></br></br> 
+ 
+ Standard : <input type="text" name="std"> 
+ Marks Obtained :<input type="text" name="marksObtain" />
+ Marks Total :<input type="text" name="marksOutOf" /></br></br>
+ 
+ <input type="submit"  value="insert"/>
+ 
 </form>
 </body>
 </html>

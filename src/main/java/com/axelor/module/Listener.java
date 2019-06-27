@@ -22,8 +22,7 @@ public class Listener extends GuiceResteasyBootstrapServletContextListener{
              bind(Controller.class);
              bind(Service.class).to(ServiceImpl.class);          
            }
-      }
-         );
+      });
      }
    
      @Override

@@ -34,17 +34,8 @@ public class Controller{
   
   @POST
   @Path("/insert")
-  public void insert(@FormParam("sname") String sname,@FormParam("percentage") String percentage,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,IOException {
-             service.add(sname, percentage);
+  public void insert(@FormParam("sname") String sname,@FormParam("age") int age,@FormParam("std") String std,@FormParam("marksObtain") int marksObtain,@FormParam("marksOutOf") int marksOutOf,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,IOException {
+             service.add(sname,age,std,marksObtain,marksOutOf);
              res.getWriter().print("successfull");
   };
-
-  @Path("/retrieve")
-  public void retrieve(String percentage,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,ServletException,IOException {
-		 List<Marksheet> mr=service.getRecord();
-		 req.setAttribute("marksheet",mr);    
-		 req.getRequestDispatcher("display.jsp").forward(req, res);  
-  };
-
-
 }
