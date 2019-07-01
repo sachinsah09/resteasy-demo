@@ -1,9 +1,9 @@
 package com.axelor.db;
 
-import java.util.Set;
-
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,13 +18,13 @@ public class Student {
 	String sname;
 	int age;
 	
-	@OneToMany(mappedBy = "student" ,orphanRemoval=true, cascade=CascadeType.ALL)	
-	private Set<Marksheet> marksheet;
+	@OneToMany(mappedBy = "student" ,orphanRemoval=true, cascade=CascadeType.ALL,fetch=FetchType.EAGER)	
+	private List<Marksheet> marksheet;
 	
-	public Set<Marksheet> getMarksheet() {
+	public List<Marksheet> getMarksheet() {
 		return marksheet;
 	}
-	public void setMarksheet(Set<Marksheet> marksheet) {
+	public void setMarksheet(List<Marksheet> marksheet) {
 		this.marksheet = marksheet;
 	}
 	public int getSid() {

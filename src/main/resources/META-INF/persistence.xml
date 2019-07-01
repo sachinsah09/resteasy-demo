@@ -15,16 +15,10 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
     <property name="javax.persistence.jdbc.password" value="axelor"/>  
     <property name="eclipselink.logging.level" value="SEVERE"/>  
     <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>  
-      
-<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> <!-- DB Dialect -->
-<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
-
-<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
-<property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
-
-
-</properties>
-      
-      
-        </persistence-unit>  
-    </persistence>  
+    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> <!-- DB Dialect -->
+	<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+	<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+	<property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+	</properties> 
+   </persistence-unit>  
+</persistence>  

@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import javax.servlet.ServletContext;
 import org.jboss.resteasy.plugins.guice.GuiceResteasyBootstrapServletContextListener;
-import com.axelor.service.Service;
-import com.axelor.service.ServiceImpl;
-import com.axelor.web.Controller;
+import com.axelor.service.MarksheetService;
+import com.axelor.service.MarksheetServiceImpl;
+import com.axelor.service.StudentService;
+import com.axelor.service.StudentServiceImpl;
+import com.axelor.web.MarksheetController;
+import com.axelor.web.StudentController;
 import com.google.inject.AbstractModule;
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -19,8 +22,10 @@ public class Listener extends GuiceResteasyBootstrapServletContextListener{
   protected List<? extends Module> getModules(ServletContext context){
          return Arrays.asList(new JpaPersistModule("persist"), new AbstractModule() {
            protected void configure() {
-             bind(Controller.class);
-             bind(Service.class).to(ServiceImpl.class);          
+             bind(StudentController.class);
+             bind(MarksheetController.class);
+             bind(StudentService.class).to(StudentServiceImpl.class);
+             bind(MarksheetService.class).to(MarksheetServiceImpl.class);
            }
       });
      }

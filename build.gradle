@@ -20,6 +20,7 @@ dependencies {
   compile group: 'org.jboss.resteasy', name: 'resteasy-guice', version: '3.6.0.Final'
   compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.2.Final'
   compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.2.Final'
+  compile 'org.jboss.resteasy:resteasy-html:3.6.0.Final'
   
 
   

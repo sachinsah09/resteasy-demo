@@ -18,7 +18,7 @@ public class Marksheet {
     int marksOutOf;
     int percentage;
   
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Student student;
   
     public Student getStudent() {
@@ -59,4 +59,3 @@ public class Marksheet {
 		this.std = std;
 	}
 }
-
