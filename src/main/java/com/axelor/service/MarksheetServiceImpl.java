@@ -25,12 +25,9 @@ public class MarksheetServiceImpl implements MarksheetService{
 	@Override
 	@Transactional
 	public void deleteRecord(int id) {
-		Query query = em.get().createQuery("DELETE FROM Marksheet m WHERE m.id="+id);
-		query.executeUpdate();
-		
-//		Marksheet m=new Marksheet();
-//		m = em.get().find(Marksheet.class, id);
-//		em.get().remove(m);	
+		Marksheet m=new Marksheet();
+		m = em.get().find(Marksheet.class, id);
+		em.get().remove(m);	
 	}
 	
 	@Override
