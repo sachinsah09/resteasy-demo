@@ -38,14 +38,11 @@ public class StudentController {
              res.sendRedirect("retrieve");
   }
   
-  @POST
   @GET
   @Path("/retrieve")
   public View retrieve(@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,IOException, ServletException {
-	 List<Student> stud=studentservice.getRecordsStudent();
-	 //req.setAttribute("marksheet",mrks);    
-	 //req.getRequestDispatcher("display.jsp").forward(req, res);
-	 return new View("showstudent.jsp", stud, "studentList");
+	 List<Student> studentList=studentservice.getRecordsStudent();
+	 return new View("showstudent.jsp", studentList, "studentList");
   }
   
   @GET
@@ -56,7 +53,6 @@ public class StudentController {
 	 }
   
   @POST
-  @GET
   @Path("/update")
   public void update(@FormParam("id") int id,@FormParam("sname") String sname,@FormParam("age") int age,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,IOException, ServletException {
 	  studentservice.updateRecord(id,sname,age);      
@@ -64,12 +60,9 @@ public class StudentController {
   }
   
   @POST
-  @GET
   @Path("/searchstudent")
   public View searchstudent(@FormParam("sname") String sname,@Context HttpServletRequest req,@Context HttpServletResponse res) throws HttpException,IOException, ServletException {
-	 List<Student> stud=studentservice.getSearchRecord(sname);
-	 //req.setAttribute("marksheet",mrks);    
-	 //req.getRequestDispatcher("display.jsp").forward(req, res);
-	 return new View("showstudent.jsp", stud, "studentList");
+	 List<Student> studentList=studentservice.getSearchRecord(sname);
+	 return new View("showstudent.jsp", studentList, "studentList");
   }
 }

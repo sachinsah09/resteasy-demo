@@ -1,6 +1,5 @@
 package com.axelor.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -28,6 +27,10 @@ public class MarksheetServiceImpl implements MarksheetService{
 	public void deleteRecord(int id) {
 		Query query = em.get().createQuery("DELETE FROM Marksheet m WHERE m.id="+id);
 		query.executeUpdate();
+		
+//		Marksheet m=new Marksheet();
+//		m = em.get().find(Marksheet.class, id);
+//		em.get().remove(m);	
 	}
 	
 	@Override
@@ -51,15 +54,15 @@ public class MarksheetServiceImpl implements MarksheetService{
 	@Transactional
 	public Marksheet add(int id, String std, int marksObtain, int marksOutOf) {
 		Student student = em.get().find(Student.class, id);
-		Marksheet ms = new Marksheet();
-		ms.setStd(std);
-		ms.setMarksObtain(marksObtain);
-		ms.setMarksOutOf(marksOutOf);
+		Marksheet marksheet = new Marksheet();
+		marksheet.setStd(std);
+		marksheet.setMarksObtain(marksObtain);
+		marksheet.setMarksOutOf(marksOutOf);
 		int percentage2 = ((marksObtain / marksOutOf) * 100);
-		ms.setPercentage(percentage2);
-		ms.setStudent(student);
+		marksheet.setPercentage(percentage2);
+		marksheet.setStudent(student);
 		
-		em.get().persist(ms);
-		return ms;
+		em.get().persist(marksheet);
+		return marksheet;
 	}
 }

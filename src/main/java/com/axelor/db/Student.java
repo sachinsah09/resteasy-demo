@@ -18,7 +18,7 @@ public class Student {
 	String sname;
 	int age;
 	
-	@OneToMany(mappedBy = "student" ,orphanRemoval=true, cascade=CascadeType.ALL,fetch=FetchType.EAGER)	
+	@OneToMany(mappedBy = "student" ,orphanRemoval=true, fetch=FetchType.EAGER)	
 	private List<Marksheet> marksheet;
 	
 	public List<Marksheet> getMarksheet() {
