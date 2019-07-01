@@ -66,7 +66,7 @@ public class StudentServiceImpl implements StudentService{
 			percentage = (marksObtain / marksOutOf) * 100;
 			marksheet.setPercentage(percentage);
 			marksheet.setStudent(student);
-
+			em.get().persist(marksheet);
 			List<Marksheet> marksheetList = new ArrayList<Marksheet>();
 			marksheetList.add(marksheet);
 
@@ -87,8 +87,8 @@ public class StudentServiceImpl implements StudentService{
 			int percentage2 = ((marksObtain / marksOutOf) * 100);
 			marksheet.setPercentage(percentage2);
 			marksheet.setStudent(student);
-
 			em.get().persist(marksheet);
+			em.get().persist(student);
 		}
 	}
 }
